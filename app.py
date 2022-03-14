@@ -14,12 +14,12 @@ st.set_page_config(page_icon = logo, page_title ="Bonsoir !", layout = "wide")
 
 @st.cache(allow_output_mutation=True)
 def load_tokenizer():
-        tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        tokenizer = GPT2Tokenizer.from_pretrained("gpt2-large")
         return tokenizer
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-        model = GPT2LMHeadModel.from_pretrained("gpt2", pad_token_id=tokenizer.eos_token_id)
+        model = GPT2LMHeadModel.from_pretrained("gpt2-large", pad_token_id=tokenizer.eos_token_id)
         return  model
 
 tokenizer =load_tokenizer()
@@ -114,7 +114,7 @@ def main():
 
     st.sidebar.subheader(":notebook_with_decorative_cover: Par Maxime Le Tutour")
 
-    st.sidebar.write(" :blue_book: [**Mon LinkedIn**](https://share.streamlit.io/mesmith027/streamlit_webapps/main/MC_pi/streamlit_app.py)", unsafe_allow_html =True)
+    st.sidebar.write(" :blue_book: [**Mon LinkedIn**](https://www.linkedin.com/in/maxime-le-tutour-95994795/)", unsafe_allow_html =True)
 
     
 
