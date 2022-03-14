@@ -14,12 +14,12 @@ st.set_page_config(page_icon = logo, page_title ="Bonsoir !", layout = "wide")
 
 @st.cache(allow_output_mutation=True)
 def load_tokenizer():
-        tokenizer = GPT2Tokenizer.from_pretrained("gpt2-large")
+        tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         return tokenizer
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-        model = GPT2LMHeadModel.from_pretrained("gpt2-large", pad_token_id=tokenizer.eos_token_id)
+        model = GPT2LMHeadModel.from_pretrained("gpt2", pad_token_id=tokenizer.eos_token_id)
         return  model
 
 tokenizer =load_tokenizer()
