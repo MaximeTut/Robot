@@ -14,22 +14,21 @@ st.set_page_config(page_icon = logo, page_title ="Bonsoir !", layout = "wide")
 
 @st.cache(allow_output_mutation=True)
 def load_tokenizer():
-        tokenizer = GPT2Tokenizer.from_pretrained("gpt2-large")
-        model = GPT2LMHeadModel.from_pretrained("gpt2-large", pad_token_id=tokenizer.eos_token_id)
+        tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         return tokenizer
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-        model = GPT2LMHeadModel.from_pretrained("gpt2-large", pad_token_id=tokenizer.eos_token_id)
+        model = GPT2LMHeadModel.from_pretrained("gpt2", pad_token_id=tokenizer.eos_token_id)
         return  model
 
 tokenizer =load_tokenizer()
 model = load_model()
 
-def reponse(question, temp=0.5, long=40):
+def reponse(question, temp=1, long=40):
     
     input_ids = tokenizer.encode(question, return_tensors='pt')
-    output = model.generate(input_ids, max_length=long, temperature =temp, num_beams=5, no_repeat_ngram_size=2, early_stopping=True)
+    output = model.generate(input_ids, max_length=long, temperature=temp, num_beams=5, no_repeat_ngram_size=2, early_stopping=True)
     rep = tokenizer.decode(output[0], skip_special_tokens=True)
     return rep
 
@@ -118,29 +117,6 @@ def main():
     st.sidebar.write(" :blue_book: [**Mon LinkedIn**](https://share.streamlit.io/mesmith027/streamlit_webapps/main/MC_pi/streamlit_app.py)", unsafe_allow_html =True)
 
     
-    
-
-
-
-
-        
-
-
-       
-            
-
-
-
-print("ok")
-
-
-
-
-
-
-
-
-
 
 
 
