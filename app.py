@@ -85,7 +85,7 @@ def robot():
         st_lottie(robot, speed=1, loop=True, quality = "low",height =300, width = 300)
         if ok:
             rep = reponse(question, long = long)
-            rep = " ".join(rep.split(".")[:-1])
+            rep = ".".join(rep.split(".")[:-1])+"." 
 
             rep_style = f'<p style="font-family:Lucida Handwriting; color:#00008B; font-size: 20px;">{rep}</p>'
             st.markdown(rep_style, unsafe_allow_html=True)
